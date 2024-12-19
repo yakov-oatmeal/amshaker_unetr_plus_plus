@@ -117,7 +117,12 @@ class UNETR_PP(SegmentationNetwork):
 
     def forward(self, x_in):
         #print("#####input_shape:", x_in.shape)
+        print("THE SHAPES")
+        print("x", x_in.shape)
+        x_in = x_in[:, :, :32, :, :]
         x_output, hidden_states = self.unetr_pp_encoder(x_in)
+
+        print("x_output", x_output.shape)
 
         convBlock = self.encoder1(x_in)
 

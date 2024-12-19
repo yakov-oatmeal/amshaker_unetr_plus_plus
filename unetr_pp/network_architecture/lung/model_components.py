@@ -58,8 +58,14 @@ class UnetrPPEncoder(nn.Module):
     def forward_features(self, x):
         hidden_states = []
 
+        x = x[:, :, :32, :, :]
+
+        print("SHAPES")
+        print("X BEFORE DOWNSAMPLE", x.shape)
         x = self.downsample_layers[0](x)
+        print("X BEFORE STAGES", x.shape)
         x = self.stages[0](x)
+        print("X AFTER STAGES", x.shape)
 
         hidden_states.append(x)
 

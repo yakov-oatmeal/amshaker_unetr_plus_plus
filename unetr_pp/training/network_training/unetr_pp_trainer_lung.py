@@ -278,6 +278,8 @@ class unetr_pp_trainer_lung(Trainer_lung):
 
         self.optimizer.zero_grad()
 
+        data = data[:, :, :32, :, :]
+
         if self.fp16:
             with autocast():
                 output = self.network(data)
