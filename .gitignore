@@ -17,3 +17,8 @@ Output
 
 # imported repositories
 amshaker_unetr_plus_plus
+
+# temporary inputs or outputs
+DATASET_Lungs
+output_lung
+
